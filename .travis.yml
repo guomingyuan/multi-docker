@@ -21,4 +21,15 @@ after_success:
   - docker push guomingyuan/multi-server
   - docker push guomingyuan/multi-worker
 
+deploy:
+  prvider: elasticbeanstalk
+  region: us-east-2
+  app: multi-docker2
+  env: Multidocker2-env
+  bucket_name: elasticbeanstalk-us-east-2-755358874736
+  bucket_path: docker-multi
+  on:
+    branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
 language: generic
